@@ -1,4 +1,3 @@
-const container = document.querySelector("#container");
 const grid = document.querySelector("#grid");
 
 let size = 16;
@@ -12,7 +11,7 @@ function makeGrid(size) {
     
         for (j = 0; j < size; j++) {
             let divRow = document.createElement("div");
-            divRow.setAttribute("style", "border: solid 1px black; margin: 0; padding: 0; flex: 1;");
+            divRow.setAttribute("style", "border: solid 1px darkgrey; margin: 0; padding: 0; flex: 1;");
             divColumn.appendChild(divRow);
             divRow.classList.add("hover");
         }

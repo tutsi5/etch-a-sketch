@@ -7,23 +7,29 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Etch a Sketch</h1>
     <div id="container">
-        <div id="btnArea">
-            Options:
-            <button class="btnSize">Change size</button>
-            <button class="btnEraser">Eraser</button>
-            <button class="btnReset">Reset</button>
+        <h1>ETCH A SKETCH</h1>
+        <div id="content">
+            <div id="btnArea">
+                <div id="options">
+                    <p>OPTIONS:</p>
+                    <button class="button btnSize"><i class="fa-regular fa-pen-to-square"></i> Resize</button>
+                    <button class="button btnEraser"><i class="fa-solid fa-eraser"></i> Eraser</button>
+                    <button class="button btnReset"><i class="fa-solid fa-rotate-right"></i> Reset</button>
+                </div>
+                <div id="chooseColor">
+                    <p>COLOR:</p>
+                    <button class="button btnBlack">Black</button>
+                    <button class="button btnRandom">Random</button>
+                    <button class="button btnColorful">Colorful</button>
+                </div>
+            </div>
+            <div id="grid"></div>
         </div>
-        <div class="chooseColor">
-            Color:
-            <button class="btnBlack">Black</button>
-            <button class="btnRandom">Random</button>
-            <button class="btnColorful">Colorful</button>
-        </div>
-        <div id="grid"></div>
-        <script src="javascript.js"></script>
     </div>
+
+    <script src="javascript.js"></script>
+    <script src="https://kit.fontawesome.com/28e89fe97a.js" crossorigin="anonymous"></script>
 
 </body>
 </html>
