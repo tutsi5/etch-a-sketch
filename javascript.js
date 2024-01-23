@@ -17,24 +17,40 @@ function makeGrid(size) {
         }
     }
 
+    let canDraw = false;
+
+    window.addEventListener("mouseup", function() {
+        canDraw = false;
+    })
+
     let hoverElements = document.querySelectorAll(".hover");
 
     hoverElements.forEach(function(hoverElement) {
         hoverElement.addEventListener("mouseover", function() {
-            if(color == "black") {
-                hoverElement.style.backgroundColor = "black";
-            } else if(color == "random") {
-                hoverElement.style.backgroundColor = oneRandomColor;
-            } else if(color == "colorful") {
-                hoverElement.style.backgroundColor = randomColor();
-            } else {
-                hoverElement.style.backgroundColor = "white";
+            if(canDraw == true) {
+                colorElement(hoverElement);
             }
+        })
+        hoverElement.addEventListener("mousedown", function() {
+            canDraw = true;
+            colorElement(hoverElement);
         })
     })
 }
 
 makeGrid(size);
+
+function colorElement(hoverElement) {
+    if(color == "black") {
+        hoverElement.style.backgroundColor = "black";
+    } else if(color == "random") {
+        hoverElement.style.backgroundColor = oneRandomColor;
+    } else if(color == "colorful") {
+        hoverElement.style.backgroundColor = randomColor();
+    } else {
+        hoverElement.style.backgroundColor = "white";
+    }
+}
 
 const gridSize = document.querySelector(".btnSize");
 
