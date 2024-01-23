@@ -26,8 +26,10 @@ function makeGrid(size) {
                 hoverElement.style.backgroundColor = "black";
             } else if(color == "random") {
                 hoverElement.style.backgroundColor = oneRandomColor;
-            } else {
+            } else if(color == "colorful") {
                 hoverElement.style.backgroundColor = randomColor();
+            } else {
+                hoverElement.style.backgroundColor = "white";
             }
         })
     })
@@ -47,6 +49,12 @@ gridSize.addEventListener("click", function() {
     size = sizeChoice;
     grid.replaceChildren();
     makeGrid(sizeChoice)
+})
+
+const eraser = document.querySelector(".btnEraser");
+
+eraser.addEventListener("click", function(){
+    color = "white";
 })
 
 const reset = document.querySelector(".btnReset");
