@@ -2,6 +2,7 @@ const container = document.querySelector("#container");
 const grid = document.querySelector("#grid");
 
 let size = 16;
+let color = "black";
 
 function makeGrid(size) {
     for (i = 0; i < size; i++) {
@@ -21,7 +22,13 @@ function makeGrid(size) {
 
     hoverElements.forEach(function(hoverElement) {
         hoverElement.addEventListener("mouseover", function() {
-            hoverElement.style.backgroundColor = "purple";
+            if(color == "black") {
+                hoverElement.style.backgroundColor = "black";
+            } else if(color == "random") {
+                hoverElement.style.backgroundColor = oneRandomColor;
+            } else {
+                hoverElement.style.backgroundColor = randomColor();
+            }
         })
     })
 }
@@ -48,3 +55,31 @@ reset.addEventListener("click", function() {
     grid.replaceChildren();
     makeGrid(size)
 })
+
+const btnBlack = document.querySelector(".btnBlack");
+const btnColorful = document.querySelector(".btnColorful");
+const btnRandom = document.querySelector(".btnRandom");
+
+btnBlack.addEventListener("click", function() {
+    color = "black";
+})
+
+let oneRandomColor = "";
+
+btnRandom.addEventListener("click", function() {
+    color = "random"
+    oneRandomColor = randomColor();
+})
+
+btnColorful.addEventListener("click", function() {
+    color = "colorful";
+})
+
+function randomColor(){
+    const hexArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+    let colorCode = "";
+    for(let i=0; i<6; i++){
+     colorCode += hexArray[Math.floor(Math.random()*16)];
+    }
+    return `#${colorCode}`
+   }
